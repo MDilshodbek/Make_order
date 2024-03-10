@@ -56,29 +56,61 @@ let url = "https://cute-jade-binturong-boot.cyclic.app/api";
 
 // makeOrder();
 
-// const getOrder = async () => {
-//   const response = await fetch(
-//     `${url}/order/get-order?access_token=64bebc1e2c6d3f056a8c85b7`
-//   );
-//   const data = await response.json();
-//   console.log(data);
-// };
+// Get order
+
+const getOrder = async () => {
+  const response = await fetch(
+    `${url}/order/get-order?access_token=64bebc1e2c6d3f056a8c85b7`
+  );
+  const data = await response.json();
+  console.log(data);
+};
 // getOrder();
 
 // Delete order
 
 const deleteOrder = async () => {
   const response = await fetch(
-    `S{url}/order/delete-order?access_token=64bebc1e2`,
+    `${url}/order/delete-order?access_token=64bebc1e2c6d3f056a8c85b7`,
     {
       method: "DELETE",
+      body: JSON.stringify({
+        _id: "65199ae2fdccd25c019612a0",
+      }),
       headers: {
         "Content-Type": "application/json",
       },
     }
   );
   const data = await response.json();
-    console.log(data);
+  console.log(data);
 };
 
-deleteOrder();
+// deleteOrder();
+
+// Get Post with new api
+
+// const getPosts = async () => {
+//   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+//   const data = await response.json();
+//   console.log(data);
+// };
+// getPosts();
+
+// PUT method to update
+
+const updateOrder = async () => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts/3", {
+    method: "PUT",
+    body: JSON.stringify({
+      title: "Hello World",
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await response.json();
+  console.log(data);
+};
+
+updateOrder();
